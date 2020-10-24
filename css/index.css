@@ -1,5 +1,3 @@
-@import "./animations.css";
-
 #Content{
     display: flex;
     flex-direction: column;
@@ -7,11 +5,7 @@
     justify-content: center;
 }
 
-.PictureTH{
-    text-align: center;
-}
-
-.fifth-data{
+.AlignCenter{
     text-align: center;
 }
 
@@ -19,10 +13,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.ReloadIconAll{
-    text-align: center;
 }
 
 .ReloadIconAll svg{
@@ -43,3 +33,20 @@ svg:hover{
     fill: #FF4423;
 }
 
+thead{
+    background-color: #212529;
+}
+
+/* ANIMATIONS */
+
+/* .animate__bounce{ */
+    /* animation-duration: .5s; */
+/* } */
+
+.animate__fadeInLeft{
+    animation-duration: .5s;
+}
+
+.animate__fadeOutRight{
+    animation-duration: .5s;
+}

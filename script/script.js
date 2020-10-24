@@ -2,12 +2,12 @@ Data = () => {
     fetch('https://api.randomuser.me/?results=10').then(res => res.json()).then(data => {
         data.results.map(dataItem => {
             const Content = 
-            `<tr>
-                <td class='first-data'>${dataItem.name.first}</td>
-                <td class='second-data'>${dataItem.name.last}</td>
-                <td class='third-data'>${dataItem.dob.age}</td>
-                <td class='fourth-data'>${dataItem.location.city}</td>
-                <td class='fifth-data'>
+            `<tr class='animate__fadeInLeft'>
+                <td>${dataItem.name.first}</td>
+                <td>${dataItem.name.last}</td>
+                <td>${dataItem.dob.age}</td>
+                <td>${dataItem.location.city}</td>
+                <td class='AlignCenter'>
                     <img src='${dataItem.picture.medium}'>
                 </td>
                 <td class='ReloadIcon' onclick='ReloadItem(this.parentElement)'>
@@ -18,10 +18,13 @@ Data = () => {
             </tr>`
             document.querySelector('table.BoxData tbody').insertAdjacentHTML('beforeend',Content)
         });
+        document.querySelector('.ReloadIconAll').setAttribute('onclick','ReloadAll(this)');
     });
 }
 
 ReloadItem = (clickedRow) => {
+    clickedRow.classList.remove('animate__fadeInLeft');
+    clickedRow.classList.add('animate__fadeOutRight');
     fetch('https://api.randomuser.me/?results=10').then(res => res.json()).then(data => {
         let dataItem = data.results[0]
             const Content = 
@@ -30,7 +33,7 @@ ReloadItem = (clickedRow) => {
                 <td class='second-data'>${dataItem.name.last}</td>
                 <td class='third-data'>${dataItem.dob.age}</td>
                 <td class='fourth-data'>${dataItem.location.city}</td>
-                <td class='fifth-data'>
+                <td class='AlignCenter'>
                     <img src='${dataItem.picture.medium}'>
                 </td>
                 <td class='ReloadIcon' onclick='ReloadItem(this.parentElement)'>
@@ -39,6 +42,23 @@ ReloadItem = (clickedRow) => {
                     </svg>
                 </td>
             `
+            clickedRow.onanimationend = () => {
+                clickedRow.classList.add("animate__fadeInLeft")
+                clickedRow.classList.remove('animate__fadeOutRight');
+            };
             clickedRow.innerHTML = Content;
         });
 };
+
+ReloadAll = (self) => {
+    self.removeAttribute('onclick');
+    let Rows = Array.from(document.querySelectorAll('tbody tr'));
+    Rows.map(row => {
+        row.classList.remove('animate__fadeInLeft');
+        row.classList.add('animate__fadeOutRight');
+    });
+    Rows[Rows.length - 1].onanimationend = () => {
+        document.querySelector('table.BoxData tbody').innerHTML = '';
+        Data();
+    }
+}
