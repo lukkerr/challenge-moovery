@@ -1,5 +1,5 @@
 #Content{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-content: center;
     justify-content: center;
@@ -37,13 +37,83 @@ thead{
     background-color: #212529;
 }
 
+.ApresentationScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #530082;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.LoginBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginBox form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 300px;
+}
+
+.LoginBox form .form-group{
+    width: 100%;
+}
+
+.BoxLogo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.BoxLogo img{
+    margin-bottom: 10px;
+}
+
+label{
+    color: white;
+}
+
+.LoginData h3{
+    color: #FFF;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* ADAPTATIONS RESPONSIVE */
+
+@media screen and (min-width: 650px){
+    .LoginBox{
+        flex-direction: row;
+    }
+    .BoxLogo{
+        margin-right: 30px;
+    }
+}
+
 /* ANIMATIONS */
 
-/* .animate__bounce{ */
-    /* animation-duration: .5s; */
-/* } */
-
 .animate__fadeInLeft{
+    animation-duration: .5s;
+}
+
+.animate__fadeOutLeft{
+    animation-duration: .5s;
+}
+
+.animate__fadeInRight{
     animation-duration: .5s;
 }
 

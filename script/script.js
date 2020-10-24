@@ -62,3 +62,14 @@ ReloadAll = (self) => {
         Data();
     }
 }
+
+LoginCreate = () => {
+    fetch('https://api.randomuser.me/?results=10').then(res => res.json()).then(data => {
+        const Content = 
+        `<div class='LoginData'>
+            <h3><b>Email:</b> <span id='EmailAuth'>${data.results[0].email}</span></h3>
+            <h3><b>Senha:</b> <span id='PasswordAuth'>${data.results[0].login.password}</span></h3>
+        </div>`
+        document.querySelector('.BoxLogo').insertAdjacentHTML('beforeend',Content);
+    });
+}
