@@ -1,4 +1,3 @@
-document.querySelector('body').addEventListener('onload',LoginCreate(),Data());
 document.getElementById('formLogin').addEventListener('submit',(event) => {
     event.preventDefault();
     let TestEmail = document.getElementById('Email').value === document.getElementById('EmailAuth').textContent;
@@ -14,5 +13,23 @@ document.getElementById('formLogin').addEventListener('submit',(event) => {
         }
     }else{
         window.alert('Email/Senha Incorretos');
+    }
+});
+
+document.getElementById('formControlRange').addEventListener('change',() => {
+    let TBody = document.querySelector('tbody');
+    let Add = document.getElementById('formControlRange').value - 
+        Array.from(TBody.children).length;
+    if(Add >= 0){
+        Data(Add);
+        console.log(document.getElementById('formControlRange').value);
+        console.log(Array.from(TBody.children).length);
+    }else{
+        for(Add; Add < 0 ; Add++){
+            TBody.removeChild(TBody.lastElementChild);
+        }
+        document.getElementById('RangePrint').textContent = document.getElementById('formControlRange').value;
+        console.log(document.getElementById('formControlRange').value);
+        console.log(Array.from(TBody.children).length);
     }
 });

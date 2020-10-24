@@ -92,6 +92,31 @@ label{
     font-size: 15px;
 }
 
+#RangeBox{
+    background-color: #343A40;
+    padding-top: 10px;
+}
+
+#RangeBox .form-group{
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+#RangeBox label{
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+#RangePrint{
+    font-weight: bold;
+}
+
+#RangeBox form{
+    width: 95%;
+    margin: auto;
+}
+
 /* ADAPTATIONS RESPONSIVE */
 
 @media screen and (min-width: 650px){

@@ -1,8 +1,16 @@
-Data = () => {
-    fetch('https://api.randomuser.me/?results=10').then(res => res.json()).then(data => {
+Start = () => {
+    LoginCreate(),
+    Data(document.getElementById('formControlRange').value),
+    document.getElementById('RangePrint').textContent = document.getElementById('formControlRange').value
+}
+
+Data = (length) => {
+    let lengthTBody = document.querySelector('tbody').children.length;
+    fetch(`https://api.randomuser.me/?results=${length}`).then(res => res.json()).then(data => {
         data.results.map(dataItem => {
             const Content = 
             `<tr class='animate__fadeInLeft'>
+                <th scope="row">${lengthTBody + 1}</th>
                 <td>${dataItem.name.first}</td>
                 <td>${dataItem.name.last}</td>
                 <td>${dataItem.dob.age}</td>
@@ -17,18 +25,22 @@ Data = () => {
                 </td>
             </tr>`
             document.querySelector('table.BoxData tbody').insertAdjacentHTML('beforeend',Content)
+            lengthTBody++;
         });
         document.querySelector('.ReloadIconAll').setAttribute('onclick','ReloadAll(this)');
+        document.getElementById('RangePrint').textContent = document.getElementById('formControlRange').value;
     });
 }
 
 ReloadItem = (clickedRow) => {
     clickedRow.classList.remove('animate__fadeInLeft');
     clickedRow.classList.add('animate__fadeOutRight');
+    let lengthTBody = Number(clickedRow.children[0].textContent);
     fetch('https://api.randomuser.me/?results=10').then(res => res.json()).then(data => {
         let dataItem = data.results[0]
             const Content = 
             `
+                <th scope="row">${lengthTBody}</th>
                 <td class='first-data'>${dataItem.name.first}</td>
                 <td class='second-data'>${dataItem.name.last}</td>
                 <td class='third-data'>${dataItem.dob.age}</td>
@@ -59,7 +71,7 @@ ReloadAll = (self) => {
     });
     Rows[Rows.length - 1].onanimationend = () => {
         document.querySelector('table.BoxData tbody').innerHTML = '';
-        Data();
+        Data(document.getElementById('formControlRange').value);
     }
 }
 
