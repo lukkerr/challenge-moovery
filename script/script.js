@@ -16,7 +16,7 @@ Data = (length) => {
                 <td>${dataItem.dob.age}</td>
                 <td>${dataItem.location.city}</td>
                 <td class='AlignCenter'>
-                    <img src='${dataItem.picture.medium}'>
+                    <img class='TdPicture' src='${dataItem.picture.medium}'>
                 </td>
                 <td class='ReloadIcon' onclick='ReloadItem(this.parentElement)'>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sync-alt" class="svg-inline--fa fa-sync-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -46,7 +46,7 @@ ReloadItem = (clickedRow) => {
                 <td class='third-data'>${dataItem.dob.age}</td>
                 <td class='fourth-data'>${dataItem.location.city}</td>
                 <td class='AlignCenter'>
-                    <img src='${dataItem.picture.medium}'>
+                    <img class='TdPicture' src='${dataItem.picture.medium}'>
                 </td>
                 <td class='ReloadIcon' onclick='ReloadItem(this.parentElement)'>
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sync-alt" class="svg-inline--fa fa-sync-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

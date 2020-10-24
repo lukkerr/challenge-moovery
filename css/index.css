@@ -37,6 +37,15 @@ thead{
     background-color: #212529;
 }
 
+.TdPicture{
+    border-radius: 10px;
+    transition: all .5s;
+}
+
+.TdPicture:hover{
+    transform: scale(1.2);
+}
+
 .ApresentationScreen{
     display: flex;
     flex-direction: column;
