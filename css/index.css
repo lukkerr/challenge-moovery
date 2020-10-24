@@ -1,0 +1,45 @@
+@import "./animations.css";
+
+#Content{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.PictureTH{
+    text-align: center;
+}
+
+.fifth-data{
+    text-align: center;
+}
+
+.ReloadIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReloadIconAll{
+    text-align: center;
+}
+
+.ReloadIconAll svg{
+    fill: #FFF;
+}
+
+.ReloadIcon svg{
+    fill: #000;
+}
+
+svg{
+    width: 20px;
+    height: 20px;
+    transition: fill .3s;
+}
+
+svg:hover{
+    fill: #FF4423;
+}
+
